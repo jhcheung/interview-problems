@@ -1,6 +1,5 @@
 function ArrayChallenge(strArr) {
 
-    // code goes here
     var firstArray = strArr[0].split(", ")
     var secondArray = strArr[1].split(", ")
   
@@ -25,10 +24,9 @@ function ArrayChallenge(strArr) {
     } else {
       return false
     }
-  }
+}
      
-  // keep this function call here  
-  console.log(ArrayChallenge(readline()));
+console.log(ArrayChallenge(readline()));
   
 //   Array Challenge
 //   Have the function ArrayChallenge(strArr) read the array of strings stored in strArr which will contain 2 elements: the first element will represent a list of comma-separated numbers sorted in ascending order, the second element will represent a second list of comma-separated numbers (also sorted). Your goal is to return a comma-separated string containing the numbers that occur in elements of strArr in sorted order. If there is no intersection, return the string false.

@@ -3,6 +3,7 @@
 // O(log n) runtime, scales with number of digits in an integer, which is log(n)
 // O(log n) storage for reverse(), scales with number of digits in an integer again.
 // O(1) storage for reverseInPlace(), stays in num/result.
+// took jimmy and ehtesh 2 hours for three different solutions
 
 // https://leetcode.com/problems/reverse-integer/solution/
 const reverseFromSolution = function(x) {

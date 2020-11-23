@@ -4,6 +4,22 @@
 // O(log n) storage for reverse(), scales with number of digits in an integer again.
 // O(1) storage for reverseInPlace(), stays in num/result.
 
+// https://leetcode.com/problems/reverse-integer/solution/
+const reverseFromSolution = function(x) {
+    let num = 0;
+
+    while (x != 0) {
+        let pop = x % 10;
+        x = Math.trunc(x / 10);
+
+        num = num * 10 + pop
+    }
+    if (num >= 2 ** 31 * 1 || num <= 2 ** 31 * -1) {
+        return 0;
+    }
+    return num;
+}
+
 /**
  * @param {number} x
  * @return {number}
@@ -24,9 +40,9 @@ const reverseInPlace = function(x) {
         num += digit * place;
         place = place * 10;
         magnitude -= 1;
-        console.log(x, digit, num);
+        // console.log(x, digit, num);
     }
-    console.log("=====");
+    // console.log("=====");
 
     if (num >= 2 ** 31 * 1 || num <= 2 ** 31 * -1) {
         return 0;
@@ -67,9 +83,23 @@ const reverse = function(x) {
     return num * sign;
 };
 
+console.assert(reverse(123) === 321);
+console.assert(reverse(-123) === -321);
+console.assert(reverse(120) === 21);
+console.assert(reverse(0) === 0);
+console.assert(reverse(2 ** 31 * -1) === 0);
+console.assert(reverse(1534236469) === 0);
+
 console.assert(reverseInPlace(123) === 321);
 console.assert(reverseInPlace(-123) === -321);
 console.assert(reverseInPlace(120) === 21);
 console.assert(reverseInPlace(0) === 0);
 console.assert(reverseInPlace(2 ** 31 * -1) === 0);
 console.assert(reverseInPlace(1534236469) === 0);
+
+console.assert(reverseFromSolution(123) === 321);
+console.assert(reverseFromSolution(-123) === -321);
+console.assert(reverseFromSolution(120) === 21);
+console.assert(reverseFromSolution(0) === 0);
+console.assert(reverseFromSolution(2 ** 31 * -1) === 0);
+console.assert(reverseFromSolution(1534236469) === 0);
